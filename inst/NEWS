@@ -1,0 +1,102 @@
+0.6-11 fix svyquantile.sqlsurvey (Anthony, again)
+
+0.6-10 wrong defn of dim.sqlsurvey was overwriting right one
+
+0.6-9 check for crazy big byvar specifications in svymean.sqlsurvey, svytotal.sqlsurvey.
+      (may still need tuning)
+
+0.6-8 degf.sqlsurvey now exported
+
+      sqlrepsurvey allows degf= to be specified, defaults to number of reps - 1.
+
+      byvars can have spaces in their levels for svymean,svytotal
+
+      labels now printed even when there are no SEs
+
+
+0.6-7 Fixed subset.sqlrepsurvey to allow subsets of subsets, bug revealed by previous fix.
+      
+      svylm.sqlrepsurvey now allows for some NA coefficients
+
+0.6-6 improved missing value handling for replicate-weight designs. (Anthony Damico)
+
+0.6-5 svyquantile.sqlrepsurvey, svylm.sqlrepsurvey, svylm.sqlsurvey use update()
+
+0.6-4 svytotal.sqlsurvey, sqlmodelmatrix, svyplot now use update()
+
+0.6-3 fix to ordering in svymean.sqlrepsurvey (Anthony Damico)
+
+      svyquantile was returning confidence intervals for the median regardless of 
+      what quantile was requested (Anthony Damico)
+
+      svyquantile didn't handle the maximum or minimum. The standard errors are
+      still not very accurate (since the max and min don't have Normal distributions),
+      but the code now runs (Anthony Damico)
+
+      add print method for sqlsurvey results
+
+      switch completely to MonetDB.R, now on CRAN and listed as a dependency
+
+0.6-2 update() now works on replicate-weight designs, with svymean() and subset()
+
+
+0.6-1 fix handling of ( in sqlexpr
+
+      fix handling of byvars with missing values in svymean.sqlsurvey
+
+0.6  initial experiment with update() function.
+
+     change DESCRIPTION to pretend that RMonetDB isn't a dependency,
+     because of r-forge problem
+
+0.5  always treat character variables as factors
+     
+     fix bug in subset.sqlsurvey design 
+
+     fix typo in svyquantile for sqlsurvey design
+
+     sqlexpr prints character constants with quotes
+
+     fix typo in open.sqlsurvey [all Anthony D'Amico]
+
+0.4-3 allow linearisation variances without any strata.
+
+0.4-1 faster svyquantile using random sample to start.
+
+    svyquantile drops missing observations
+
+    better approach to subsets for replicate-weights.
+
+    svyloglin() method for sqlrepsurvey
+
+    svylm() works with MonetDB's flavour of SQL.
+
+    svychisq() for Rao-Scott tests (via svyloglin)
+
+    simple expressions can be used: eg, ~I(relp %in% 0:15)
+
+    ~cut(x,breaks) can be used.
+
+0.4 Renamed to sqlsurvey.
+
+    Added support for replicate weights
+
+    switched to JDBC and MonetDB rather than SQLite
+
+0.3 faster creation from existing SQLite database
+
+    added sqlocpoly for smoothing and density estimation
+
+    added sqlhexbin
+    
+    open.sqlsurvey() now checks for the existence of the file
+
+    sqlsubst() allows (and ignores) NULL replacement values
+
+
+0.2 added svylm
+
+    allowed sampling with replacement
+
+0.1  Initial version
+
